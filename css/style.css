@@ -1,0 +1,24 @@
+html {
+  font-size: 16px;
+}
+
+html, body {
+  height: 100%;
+}
+
+html, body, nav, header, main, aside, footer, article, section, div {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Lucida Sans Regular', Geneva, Verdana, sans-serif;
+  display: grid;
+  grid-template-columns: 180px auto minmax(480px, 1000px) auto minmax(auto, 180px);
+  grid-template-rows: min-content auto min-content;
+  grid-template-areas:
+    "header header  header  header  header"
+    "nav    .       main    .       ."
+    "footer footer  footer  footer  footer";
+}
