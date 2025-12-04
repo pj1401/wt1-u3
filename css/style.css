@@ -15,10 +15,46 @@ html, body, nav, header, main, aside, footer, article, section, div {
 body {
   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Lucida Sans Regular', Geneva, Verdana, sans-serif;
   display: grid;
-  grid-template-columns: 180px auto minmax(480px, 1000px) auto minmax(auto, 180px);
-  grid-template-rows: min-content auto min-content;
+  grid-template-columns: 180px minmax(480px, 1000px) minmax(auto, 180px);
+  grid-template-rows: min-content min-content auto min-content;
   grid-template-areas:
-    "header header  header  header  header"
-    "nav    .       main    .       ."
-    "footer footer  footer  footer  footer";
+    "header  header  g-nav"
+    "l-nav   l-nav   l-nav"
+    "main    main    main"
+    "footer  footer  footer";
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: normal;
+}
+
+header {
+  grid-area: header;
+}
+
+#logo {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  display: inline-block;
+  font-size: 2.2rem;
+  padding: 10px;
+  text-decoration: none;
+}
+
+#global-nav {
+  grid-area: g-nav;
+}
+
+main {
+  grid-area: main;
+}
+
+footer {
+  grid-area: footer;
+}
+
+@media screen and (min-width: 780px) {
+}
+
+@media screen and (min-width: 1040px) {
 }
