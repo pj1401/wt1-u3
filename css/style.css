@@ -15,13 +15,14 @@ html, body, nav, header, main, aside, footer, article, section, div {
 body {
   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Lucida Sans Regular', Geneva, Verdana, sans-serif;
   display: grid;
-  grid-template-columns: 180px minmax(480px, 1000px) minmax(auto, 180px);
-  grid-template-rows: min-content min-content auto min-content;
+  grid-template-columns: auto;
+  grid-template-rows: min-content min-content min-content auto min-content;
   grid-template-areas:
-    "header  header  g-nav"
-    "l-nav   l-nav   l-nav"
-    "main    main    main"
-    "footer  footer  footer";
+    "g-nav"
+    "header"
+    "l-nav"
+    "main"
+    "footer";
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -53,8 +54,49 @@ footer {
   grid-area: footer;
 }
 
+#menu-icon {
+  background-image: url(../img/menu-burger.svg);
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  cursor: pointer;
+  background-size: contain;
+  margin-left: 2px;
+}
+#menu-button {
+  display: none;
+}
+#nav-button ~ ul {
+  display: none;
+}
+#nav-button:has(menu-button:checked) ~ ul {
+  display: flex;
+  position: absolute;
+}
+#global-nav ul {
+  flex-direction: column;
+  margin-top: 20%;
+  width: 100%;
+  align-items: normal;
+  height: auto;
+}
+#global-nav a {
+  margin: 15px 10px;
+}
+
 @media screen and (min-width: 780px) {
 }
 
 @media screen and (min-width: 1040px) {
+  body {
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Lucida Sans Regular', Geneva, Verdana, sans-serif;
+    display: grid;
+    grid-template-columns: 180px minmax(480px, 1000px) minmax(auto, 180px);
+    grid-template-rows: min-content min-content auto min-content;
+    grid-template-areas:
+      "header  header  g-nav"
+      "l-nav   l-nav   l-nav"
+      "main    main    main"
+      "footer  footer  footer";
+  }
 }
