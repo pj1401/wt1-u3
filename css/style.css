@@ -48,9 +48,6 @@ header {
 
 .nav-button:has(#menu-button) {
   grid-area: nav-button;
-  height: 4em;
-  width: 4em;
-  position: relative;
 }
 #global-nav {
   grid-area: g-nav;
@@ -62,6 +59,7 @@ main {
 
 #local-nav-sidebar {
   grid-area: l-nav;
+  display: flex;
 }
 
 footer {
@@ -74,8 +72,12 @@ nav ul {
   list-style: none;
 }
 
-#menu-icon {
-  background-image: url(../img/menu-burger.svg);
+.nav-button {
+  height: 4em;
+  width: 4em;
+  position: relative;
+}
+.nav-button label {
   display: inline-block;
   cursor: pointer;
   background-size: contain;
@@ -87,7 +89,10 @@ nav ul {
   left: 50%;
   margin-left: -1em;
 }
-#menu-button {
+#menu-icon {
+  background-image: url(../img/menu-burger.svg);
+}
+.nav-button input {
   display: none;
 }
 .nav-button ~ #global-nav ul {
@@ -107,13 +112,12 @@ nav ul {
   gap: 1em;
   text-align: center;
 }
-#global-nav a {
-  margin: 15px 10px;
+.nav-list a {
+  margin: 0.8em 0.5em;
+  padding: 0.6em;
   text-decoration: none;
   font-size: 1.2rem;
   display: block;
-  margin: 15px 10px;
-  padding: 12px;
 }
 .nav-list {
   background-color: #fff;
@@ -130,6 +134,22 @@ nav ul {
   background-color: #ABD8CF;
   border: none;
   border-radius: 5px;
+}
+
+#local-nav-sidebar label {
+  background-image: url(../img/menu.svg);
+}
+#side-menu-button:checked ~ label {
+  background-image: url(../img/menu-open.svg);
+}
+#local-nav-sidebar .nav-list {
+  display: none;
+}
+.nav-button:has(#side-menu-button:checked) ~ nav .nav-list {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  padding: 0;
 }
 
 @media screen and (min-width: 780px) {
