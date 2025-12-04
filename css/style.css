@@ -32,6 +32,7 @@ h1, h2, h3, h4, h5, h6 {
 
 header {
   grid-area: header;
+  text-align: center;
 }
 
 #logo {
@@ -40,10 +41,14 @@ header {
   font-size: 2.2rem;
   padding: 10px;
   text-decoration: none;
+  color: #357266;
 }
 
 .nav-button:has(#menu-button) {
   grid-area: nav-button;
+  height: 4em;
+  width: 4em;
+  position: relative;
 }
 #global-nav .nav-list {
   grid-area: g-nav;
@@ -63,12 +68,16 @@ nav ul {
 
 #menu-icon {
   background-image: url(../img/menu-burger.svg);
-  width: 32px;
-  height: 32px;
   display: inline-block;
   cursor: pointer;
   background-size: contain;
-  margin-left: 2px;
+  position:absolute;
+  height:2em;
+  top:50%;
+  margin-top:-1em;
+  width: 2em;
+  left: 50%;
+  margin-left: -1em;
 }
 #menu-button {
   display: none;
