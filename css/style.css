@@ -58,8 +58,14 @@ main {
   grid-area: main;
 }
 
+#local-nav-sidebar {
+  grid-area: l-nav;
+}
+
 footer {
   grid-area: footer;
+  background-color: #343434;
+  color: #fff;
 }
 
 nav ul {
@@ -101,6 +107,26 @@ nav ul {
 }
 #global-nav a {
   margin: 15px 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.2rem;
+  display: block;
+  margin: 15px 10px;
+  padding: 12px;
+}
+.nav-list {
+  background-color: #fff;
+}
+#global-nav a:link, #global-nav a:visited {
+  color: #000;
+  font-weight: normal;
+  border-bottom: 1px solid #343434;
+}
+#global-nav a:hover {
+  background-color: #f7f7f8;
+}
+#global-nav a.this-page {
+  background-color: #ABD8CF;
 }
 
 @media screen and (min-width: 780px) {
@@ -108,14 +134,15 @@ nav ul {
 
 @media screen and (min-width: 1040px) {
   body {
-    font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Lucida Sans Regular', Geneva, Verdana, sans-serif;
-    display: grid;
-    grid-template-columns: 180px minmax(480px, 1000px) minmax(auto, 180px);
+    grid-template-columns: 180px minmax(480px, 1000px);
     grid-template-rows: min-content min-content auto min-content;
     grid-template-areas:
-      "header  header  g-nav"
-      "l-nav   l-nav   l-nav"
-      "main    main    main"
-      "footer  footer  footer";
+      "header  header"
+      "g-nav   g-nav"
+      "l-nav    main"
+      "footer  footer";
+  }
+  .nav-button {
+    display: none;
   }
 }
