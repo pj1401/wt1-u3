@@ -134,7 +134,7 @@ nav ul {
 
 @media screen and (min-width: 1040px) {
   body {
-    grid-template-columns: 180px minmax(480px, 1000px);
+    grid-template-columns: 180px minmax(480px, auto);
     grid-template-rows: min-content min-content auto min-content;
     grid-template-areas:
       "header  header"
