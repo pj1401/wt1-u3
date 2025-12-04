@@ -15,14 +15,14 @@ html, body, nav, header, main, aside, footer, article, section, div {
 body {
   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Lucida Sans Regular', Geneva, Verdana, sans-serif;
   display: grid;
-  grid-template-columns: auto;
+  grid-template-columns: auto min-content;
   grid-template-rows: min-content min-content min-content auto min-content;
   grid-template-areas:
-    "g-nav"
-    "header"
-    "l-nav"
-    "main"
-    "footer";
+    "g-nav g-nav"
+    "header nav-button"
+    "l-nav l-nav"
+    "main main"
+    "footer footer";
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -42,7 +42,10 @@ header {
   text-decoration: none;
 }
 
-#global-nav {
+.nav-button:has(#menu-button) {
+  grid-area: nav-button;
+}
+#global-nav .nav-list {
   grid-area: g-nav;
 }
 
@@ -52,6 +55,10 @@ main {
 
 footer {
   grid-area: footer;
+}
+
+nav ul {
+  list-style: none;
 }
 
 #menu-icon {
@@ -66,19 +73,22 @@ footer {
 #menu-button {
   display: none;
 }
-#nav-button ~ ul {
+.nav-button ~ #global-nav ul {
   display: none;
 }
-#nav-button:has(menu-button:checked) ~ ul {
+.nav-button:has(#menu-button:checked) ~ #global-nav ul {
   display: flex;
   position: absolute;
 }
-#global-nav ul {
-  flex-direction: column;
-  margin-top: 20%;
+#global-nav .nav-list {
   width: 100%;
-  align-items: normal;
   height: auto;
+  align-items: normal;
+  margin-top: 20%;
+  padding: 0;
+  flex-direction: column;
+  gap: 1em;
+  text-align: center;
 }
 #global-nav a {
   margin: 15px 10px;
