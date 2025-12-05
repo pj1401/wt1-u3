@@ -15,14 +15,15 @@ html, body, nav, header, main, aside, footer, article, section, div {
 body {
   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Lucida Sans Regular', Geneva, Verdana, sans-serif;
   display: grid;
-  grid-template-columns: auto min-content;
-  grid-template-rows: min-content min-content min-content auto min-content;
+  grid-template-columns: min-content auto min-content;
+  grid-template-rows: min-content min-content min-content min-content auto min-content;
   grid-template-areas:
-    "g-nav g-nav"
-    "header nav-button"
-    "l-nav l-nav"
-    "main main"
-    "footer footer";
+    "g-nav g-nav g-nav"
+    "header header nav-button"
+    "side-nav-btn breadcrumb breadcrumb"
+    "l-nav l-nav l-nav"
+    "main main main"
+    "footer footer footer";
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -38,17 +39,16 @@ header {
 #logo {
   font-family: Georgia, 'Times New Roman', Times, serif;
   display: inline-block;
-  font-size: 2.2rem;
-  padding: 10px;
+  font-size: 2.5rem;
+  top: 50%;
+  margin: 1.25rem auto;
+  padding: 1.25rem;
   text-decoration: none;
   color: #357266;
 }
 
 .nav-button:has(#menu-button) {
   grid-area: nav-button;
-  height: 4em;
-  width: 4em;
-  position: relative;
 }
 #global-nav {
   grid-area: g-nav;
@@ -59,6 +59,12 @@ main {
 }
 
 #local-nav-sidebar {
+  display: grid;
+}
+#local-nav-sidebar .nav-button {
+  grid-area: side-nav-btn;
+}
+#local-nav-sidebar .nav-collapsible {
   grid-area: l-nav;
 }
 
@@ -72,8 +78,12 @@ nav ul {
   list-style: none;
 }
 
-#menu-icon {
-  background-image: url(../img/menu-burger.svg);
+.nav-button {
+  height: 4em;
+  width: 4em;
+  position: relative;
+}
+.nav-button label {
   display: inline-block;
   cursor: pointer;
   background-size: contain;
@@ -85,48 +95,62 @@ nav ul {
   left: 50%;
   margin-left: -1em;
 }
-#menu-button {
+#menu-icon {
+  background-image: url(../img/menu-burger.svg);
+}
+.nav-collapsible .nav-list, .nav-button input {
   display: none;
 }
-.nav-button ~ #global-nav ul {
-  display: none;
-}
-.nav-button:has(#menu-button:checked) ~ #global-nav ul {
+.nav-button:has(input[type=checkbox]:checked) ~ .nav-collapsible .nav-list {
   display: flex;
   position: absolute;
+  z-index: 1000;
 }
-#global-nav .nav-list {
+.nav-button:has(input[type=checkbox]:checked) ~ #global-nav .nav-list {
+  z-index: 2000;
+}
+.nav-list {
   width: 100%;
   height: auto;
   align-items: normal;
-  margin-top: 20%;
   padding: 0;
   flex-direction: column;
   gap: 1em;
   text-align: center;
-}
-#global-nav a {
-  margin: 15px 10px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.2rem;
-  display: block;
-  margin: 15px 10px;
-  padding: 12px;
-}
-.nav-list {
   background-color: #fff;
 }
-#global-nav a:link, #global-nav a:visited {
+#global-nav .nav-list {
+  margin-top: 20%;
+}
+.nav-list a {
+  margin: 0.8em 0.5em;
+  padding: 0.6em;
+  text-decoration: none;
+  font-size: 1.2rem;
+  display: block;
+}
+.nav-list a:link, .nav-list a:visited {
   color: #000;
   font-weight: normal;
   border-bottom: 1px solid #343434;
 }
-#global-nav a:hover {
+.nav-list a:hover {
   background-color: #f7f7f8;
 }
 #global-nav a.this-page {
   background-color: #ABD8CF;
+  border: none;
+  border-radius: 5px;
+}
+
+#local-nav-sidebar label {
+  background-image: url(../img/menu.svg);
+}
+#side-menu-button:checked ~ label {
+  background-image: url(../img/menu-open.svg);
+}
+#local-nav-sidebar .nav-list {
+  margin-top: 10%;
 }
 
 @media screen and (min-width: 780px) {
@@ -134,7 +158,7 @@ nav ul {
 
 @media screen and (min-width: 1040px) {
   body {
-    grid-template-columns: 180px minmax(480px, auto);
+    grid-template-columns: 0.25fr minmax(480px, auto);
     grid-template-rows: min-content min-content auto min-content;
     grid-template-areas:
       "header  header"
@@ -145,17 +169,27 @@ nav ul {
   .nav-button {
     display: none;
   }
-  .nav-button ~ #global-nav .nav-list {
+  .nav-button ~ .nav-collapsible .nav-list, .nav-button:has(input[type=checkbox]:checked) ~ .nav-collapsible .nav-list {
     display: flex;
+    position: relative;
+  }
+  #global-nav .nav-list {
     flex-direction: row;
     margin: 0;
     align-items: center;
     justify-content: space-evenly;
   }
-  #global-nav a {
+  .nav-list a {
     width: 6em;
   }
-  header, footer {
+  #local-nav-sidebar {
+    display: flex;
+    justify-content: center;
+  }
+  #local-nav-sidebar .nav-list a {
+    border-bottom: none;
+  }
+  footer {
     height: 5em;
   }
 }
