@@ -136,6 +136,7 @@ nav ul {
 }
 .nav-list a:hover {
   background-color: #f7f7f8;
+  text-decoration: underline;
 }
 #global-nav a.this-page {
   background-color: #ABD8CF;
