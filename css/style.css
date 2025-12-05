@@ -15,14 +15,15 @@ html, body, nav, header, main, aside, footer, article, section, div {
 body {
   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Lucida Sans Regular', Geneva, Verdana, sans-serif;
   display: grid;
-  grid-template-columns: auto min-content;
-  grid-template-rows: min-content min-content min-content auto min-content;
+  grid-template-columns: min-content auto min-content;
+  grid-template-rows: min-content min-content min-content min-content auto min-content;
   grid-template-areas:
-    "g-nav g-nav"
-    "header nav-button"
-    "l-nav l-nav"
-    "main main"
-    "footer footer";
+    "g-nav g-nav g-nav"
+    "header header nav-button"
+    "side-nav-btn breadcrumb breadcrumb"
+    "l-nav l-nav l-nav"
+    "main main main"
+    "footer footer footer";
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -57,9 +58,11 @@ main {
   grid-area: main;
 }
 
-#local-nav-sidebar {
+#local-nav-sidebar .nav-button {
+  grid-area: side-nav-btn;
+}
+#local-nav-sidebar .nav-list {
   grid-area: l-nav;
-  display: flex;
 }
 
 footer {
@@ -92,25 +95,25 @@ nav ul {
 #menu-icon {
   background-image: url(../img/menu-burger.svg);
 }
-.nav-button input {
+.nav-collapsible .nav-list, .nav-button input {
   display: none;
 }
-.nav-button ~ #global-nav ul {
-  display: none;
-}
-.nav-button:has(#menu-button:checked) ~ #global-nav ul {
+.nav-button:has(input[type=checkbox]:checked) ~ .nav-collapsible .nav-list {
   display: flex;
   position: absolute;
+  z-index: 1000;
 }
-#global-nav .nav-list {
+.nav-list {
   width: 100%;
   height: auto;
   align-items: normal;
-  margin-top: 20%;
   padding: 0;
   flex-direction: column;
   gap: 1em;
   text-align: center;
+}
+#global-nav .nav-list {
+  margin-top: 20%;
 }
 .nav-list a {
   margin: 0.8em 0.5em;
@@ -142,15 +145,13 @@ nav ul {
 #side-menu-button:checked ~ label {
   background-image: url(../img/menu-open.svg);
 }
-#local-nav-sidebar .nav-list {
+/* #local-nav-sidebar .nav-list {
   display: none;
-}
-.nav-button:has(#side-menu-button:checked) ~ nav .nav-list {
+} */
+/* .nav-button:has(#side-menu-button:checked) ~ nav .nav-list {
   display: flex;
-  flex-direction: column;
   position: absolute;
-  padding: 0;
-}
+} */
 
 @media screen and (min-width: 780px) {
 }
