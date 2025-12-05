@@ -58,10 +58,13 @@ main {
   grid-area: main;
 }
 
+#local-nav-sidebar {
+  display: grid;
+}
 #local-nav-sidebar .nav-button {
   grid-area: side-nav-btn;
 }
-#local-nav-sidebar .nav-list {
+#local-nav-sidebar .nav-collapsible {
   grid-area: l-nav;
 }
 
@@ -103,6 +106,9 @@ nav ul {
   position: absolute;
   z-index: 1000;
 }
+.nav-button:has(input[type=checkbox]:checked) ~ #global-nav .nav-list {
+  z-index: 2000;
+}
 .nav-list {
   width: 100%;
   height: auto;
@@ -111,6 +117,7 @@ nav ul {
   flex-direction: column;
   gap: 1em;
   text-align: center;
+  background-color: #fff;
 }
 #global-nav .nav-list {
   margin-top: 20%;
@@ -122,15 +129,12 @@ nav ul {
   font-size: 1.2rem;
   display: block;
 }
-.nav-list {
-  background-color: #fff;
-}
-#global-nav a:link, #global-nav a:visited {
+.nav-list a:link, .nav-list a:visited {
   color: #000;
   font-weight: normal;
   border-bottom: 1px solid #343434;
 }
-#global-nav a:hover {
+.nav-list a:hover {
   background-color: #f7f7f8;
 }
 #global-nav a.this-page {
@@ -145,13 +149,9 @@ nav ul {
 #side-menu-button:checked ~ label {
   background-image: url(../img/menu-open.svg);
 }
-/* #local-nav-sidebar .nav-list {
-  display: none;
-} */
-/* .nav-button:has(#side-menu-button:checked) ~ nav .nav-list {
-  display: flex;
-  position: absolute;
-} */
+#local-nav-sidebar .nav-list {
+  margin-top: 10%;
+}
 
 @media screen and (min-width: 780px) {
 }
@@ -169,15 +169,25 @@ nav ul {
   .nav-button {
     display: none;
   }
-  .nav-button ~ #global-nav .nav-list {
+  .nav-button ~ .nav-collapsible .nav-list, .nav-button:has(input[type=checkbox]:checked) ~ .nav-collapsible .nav-list {
     display: flex;
+    position: relative;
+  }
+  #global-nav .nav-list {
     flex-direction: row;
     margin: 0;
     align-items: center;
     justify-content: space-evenly;
   }
-  #global-nav a {
+  .nav-list a {
     width: 6em;
+  }
+  #local-nav-sidebar {
+    display: flex;
+    justify-content: center;
+  }
+  #local-nav-sidebar .nav-list a {
+    border-bottom: none;
   }
   footer {
     height: 5em;
