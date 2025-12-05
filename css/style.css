@@ -34,15 +34,13 @@ h1, h2, h3, h4, h5, h6 {
 header {
   grid-area: header;
   text-align: center;
+  line-height: 4em;
 }
 
 #logo {
   font-family: Georgia, 'Times New Roman', Times, serif;
   display: inline-block;
   font-size: 2.5rem;
-  top: 50%;
-  margin: 1.25rem auto;
-  padding: 1.25rem;
   text-decoration: none;
   color: #357266;
 }
@@ -121,9 +119,7 @@ nav ul {
   gap: 1em;
   text-align: center;
   background-color: #fff;
-}
-#global-nav .nav-list {
-  margin-top: 8em;
+  margin-top: 4em;
 }
 .nav-list a, .nav-list summary {
   margin: 0.8em 0.5em;
@@ -164,9 +160,6 @@ nav ul {
 #side-menu-button:checked ~ label {
   background-image: url(../img/menu-open.svg);
 }
-#local-nav-sidebar .nav-list {
-  margin-top: 4em;
-}
 
 @media screen and (min-width: 780px) {
 }
@@ -200,6 +193,9 @@ nav ul {
   #local-nav-sidebar {
     display: flex;
     justify-content: center;
+  }
+  header {
+    line-height: 8em;
   }
   footer {
     height: 5em;
