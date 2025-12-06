@@ -8,27 +8,38 @@
 </head>
 <body>
   <header>
-    <a href="../index.html" id="logo">Logo</a>
-  </header>
-  <div class="nav-button">
-    <label for="menu-button" id="menu-icon"></label>
-    <input type="checkbox" id="menu-button" class="nav-btn-input">
-  </div>
-  <nav class="nav-collapsible" id="global-nav">
-    <ul class="nav-list">
-      <li><a href="../restaurang.html">Restaurang</a></li>
-      <li><a href="./index.html" class="this-page">Hotell</a></li>
-      <li><a href="../om.html">Om oss</a></li>
-    </ul>
-  </nav>
-  <aside id="local-nav-sidebar">
-    <div class="nav-button">
-      <input type="checkbox" id="side-menu-button" class="nav-btn-input">
-      <label for="side-menu-button"></label>
+    <div class="logo">
+      <a href="../">Logo</a>
     </div>
-    <nav class="nav-collapsible">
+    <div class="nav-button">
+      <input type="checkbox" id="menu-button" class="nav-btn-input">
+      <label for="menu-button"></label>
+    </div>
+    <nav class="nav-collapsible" id="global-nav">
       <ul class="nav-list">
-        <li><a href="./rum.html">Våra rum</a></li>
+        <li><a href="../restaurang.html">Restaurang</a></li>
+        <li><a href="./" class="this-page">Hotell</a></li>
+        <li><a href="../om.html">Om oss</a></li>
+      </ul>
+    </nav>
+    <div class="nav-button">
+      <input type="checkbox" id="side-menu-btn" class="nav-btn-input">
+      <label for="side-menu-btn"></label>
+    </div>
+    <div class="breadcrumb"></div>
+  </header>
+  <aside>
+    <nav class="nav-collapsible" id="local-nav">
+      <ul class="nav-list">
+        <li><details>
+          <summary><a href="./rum/">Våra rum</a></summary>
+          <ul class="nav-list">
+            <li><a href="./rum/rum1.html">Rum 1</a></li>
+            <li><a href="./rum/rum1.html">Rum 1</a></li>
+            <li><a href="./rum/rum1.html">Rum 1</a></li>
+            <li><a href="./rum/rum1.html">Rum 1</a></li>
+          </ul>
+        </details></li>
         <li><a href="./boka-rum.html">Boka rum</a></li>
       </ul>
     </nav>
@@ -42,7 +53,7 @@
       </nav>
     </aside>
     <div class="main-body">
-      <section>Vårat hotell har fyra rum.</section>
+      <section>Vårt hotell har fyra rum.</section>
     </div>
   </main>
   <footer>

@@ -12,18 +12,18 @@ html, body, nav, header, main, aside, footer, article, section, div {
   box-sizing: border-box;
 }
 
+/* Grid setup */
+
 body {
   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Lucida Sans Regular', Geneva, Verdana, sans-serif;
   display: grid;
-  grid-template-columns: min-content auto min-content;
-  grid-template-rows: min-content min-content min-content min-content auto min-content;
+  grid-template-columns: auto;
+  grid-template-rows: min-content min-content auto min-content;
   grid-template-areas:
-    "g-nav g-nav g-nav"
-    "header header nav-button"
-    "side-nav-btn breadcrumb breadcrumb"
-    "l-nav l-nav l-nav"
-    "main main main"
-    "footer footer footer";
+    "header"
+    "l-nav"
+    "main"
+    "footer";
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -31,53 +31,59 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
 
-header {
-  grid-area: header;
-  text-align: center;
+aside:has(> #local-nav) {
+  grid-area: l-nav;
 }
-
-#logo {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  display: inline-block;
-  font-size: 2.5rem;
-  top: 50%;
-  margin: 1.25rem auto;
-  padding: 1.25rem;
-  text-decoration: none;
-  color: #357266;
-}
-
-.nav-button:has(#menu-button) {
-  grid-area: nav-button;
-}
-#global-nav {
-  grid-area: g-nav;
-}
-
 main {
   grid-area: main;
 }
-
-#local-nav-sidebar {
-  display: grid;
-}
-#local-nav-sidebar .nav-button {
-  grid-area: side-nav-btn;
-}
-#local-nav-sidebar .nav-collapsible {
-  grid-area: l-nav;
-}
-
 footer {
   grid-area: footer;
   background-color: #343434;
   color: #fff;
 }
 
+header {
+  grid-area: header;
+  text-align: center;
+  display: grid;
+  grid-template-columns: min-content auto min-content;
+  grid-template-rows: auto auto min-content;
+  grid-template-areas:
+    "logo logo g-nav-btn"
+    "g-nav g-nav g-nav"
+    "side-nav-btn breadcrumb breadcrumb";
+}
+.logo {
+  grid-area: logo;
+  line-height: 4em;
+}
+#global-nav {
+  grid-area: g-nav;
+}
+.nav-button:has(> #menu-button) {
+  grid-area: g-nav-btn;
+}
+header .breadcrumb {
+  grid-area: breadcrumb;
+}
+.nav-button:has(> #side-menu-btn) {
+  grid-area: side-nav-btn;
+}
+
+.logo a {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  display: inline-block;
+  font-size: 2.5rem;
+  text-decoration: none;
+  color: #357266;
+}
+
+/* Navigering */
+
 nav ul {
   list-style: none;
 }
-
 .nav-button {
   height: 4em;
   width: 4em;
@@ -95,19 +101,20 @@ nav ul {
   left: 50%;
   margin-left: -1em;
 }
-#menu-icon {
-  background-image: url(../img/menu-burger.svg);
-}
 .nav-collapsible .nav-list, .nav-button input {
   display: none;
 }
-.nav-button:has(input[type=checkbox]:checked) ~ .nav-collapsible .nav-list {
+.nav-button:has(> #menu-button:checked) ~ #global-nav .nav-list,
+header:has(> .nav-button > #side-menu-btn:checked) ~ aside .nav-collapsible .nav-list {
   display: flex;
   position: absolute;
   z-index: 1000;
 }
-.nav-button:has(input[type=checkbox]:checked) ~ #global-nav .nav-list {
+.nav-button:has(> #menu-button:checked) ~ #global-nav .nav-list {
   z-index: 2000;
+}
+header:has(> .nav-button > #side-menu-btn:checked) ~ aside .nav-collapsible details .nav-list {
+  position: relative;
 }
 .nav-list {
   width: 100%;
@@ -119,39 +126,48 @@ nav ul {
   text-align: center;
   background-color: #fff;
 }
-#global-nav .nav-list {
-  margin-top: 20%;
-}
-.nav-list a {
+.nav-list a, .nav-list summary {
   margin: 0.8em 0.5em;
   padding: 0.6em;
   text-decoration: none;
   font-size: 1.2rem;
   display: block;
+  border-bottom: 1px solid #343434;
 }
 .nav-list a:link, .nav-list a:visited {
   color: #000;
   font-weight: normal;
-  border-bottom: 1px solid #343434;
+}
+.nav-list a:hover, .nav-list summary:hover {
+  background-color: #f7f7f8;
 }
 .nav-list a:hover {
-  background-color: #f7f7f8;
+  text-decoration: underline;
+}
+.nav-list summary {
+  display: list-item;
+}
+.nav-list summary a {
+  margin: 0;
+  padding: 0;
+  display: inline;
+  border: none;
 }
 #global-nav a.this-page {
   background-color: #ABD8CF;
   border: none;
   border-radius: 5px;
 }
-
-#local-nav-sidebar label {
+#menu-button ~ label {
+  background-image: url(../img/menu-burger.svg);
+}
+#side-menu-btn ~ label {
   background-image: url(../img/menu.svg);
 }
-#side-menu-button:checked ~ label {
+#side-menu-btn:checked ~ label {
   background-image: url(../img/menu-open.svg);
 }
-#local-nav-sidebar .nav-list {
-  margin-top: 10%;
-}
+
 
 @media screen and (min-width: 780px) {
 }
@@ -159,17 +175,29 @@ nav ul {
 @media screen and (min-width: 1040px) {
   body {
     grid-template-columns: 0.25fr minmax(480px, auto);
-    grid-template-rows: min-content min-content auto min-content;
+    grid-template-rows: min-content auto min-content;
     grid-template-areas:
       "header  header"
-      "g-nav   g-nav"
       "l-nav    main"
       "footer  footer";
+  }
+  header {
+    grid-template-columns: auto;
+    grid-template-rows: auto auto min-content;
+    grid-template-areas:
+      "logo"
+      "g-nav"
+      "breadcrumb";
+  }
+  .logo {
+    line-height: 8em;
   }
   .nav-button {
     display: none;
   }
-  .nav-button ~ .nav-collapsible .nav-list, .nav-button:has(input[type=checkbox]:checked) ~ .nav-collapsible .nav-list {
+  .nav-collapsible .nav-list,
+  .nav-button:has(> #menu-button:checked) ~ #global-nav .nav-list,
+  header:has(> .nav-button > #side-menu-btn:checked) ~ aside .nav-collapsible .nav-list {
     display: flex;
     position: relative;
   }
@@ -179,15 +207,15 @@ nav ul {
     align-items: center;
     justify-content: space-evenly;
   }
-  .nav-list a {
+  #global-nav a {
     width: 6em;
   }
-  #local-nav-sidebar {
+  #local-nav {
     display: flex;
     justify-content: center;
   }
-  #local-nav-sidebar .nav-list a {
-    border-bottom: none;
+  #local-nav a, #local-nav summary {
+    border: none;
   }
   footer {
     height: 5em;
