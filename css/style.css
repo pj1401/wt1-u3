@@ -15,13 +15,12 @@ html, body, nav, header, main, aside, footer, article, section, div {
 body {
   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Lucida Sans Regular', Geneva, Verdana, sans-serif;
   display: grid;
-  grid-template-columns: min-content auto min-content;
-  grid-template-rows: min-content min-content min-content min-content auto min-content;
+  grid-template-columns: auto;
+  grid-template-rows: min-content auto min-content;
   grid-template-areas:
-    "g-nav g-nav g-nav"
-    "header header nav-button"
-    "side-nav-btn breadcrumb breadcrumb"
-    "l-nav l-nav l-nav"
+    /* "g-nav g-nav g-nav" */
+    "header header header"
+    /* "side-nav-btn breadcrumb breadcrumb" */
     "main main main"
     "footer footer footer";
 }
@@ -35,9 +34,18 @@ header {
   grid-area: header;
   text-align: center;
   line-height: 4em;
+  display: grid;
+  grid-template-columns: min-content auto min-content;
+  grid-template-rows: auto min-content;
+  grid-template-areas:
+    "logo logo g-nav"
+    "side-nav-btn breadcrumb breadcrumb";
 }
 
-#logo {
+header .logo {
+  grid-area: logo;
+}
+.logo a {
   font-family: Georgia, 'Times New Roman', Times, serif;
   display: inline-block;
   font-size: 2.5rem;
@@ -46,10 +54,14 @@ header {
 }
 
 .nav-button:has(#menu-button) {
-  grid-area: nav-button;
-}
-#global-nav {
   grid-area: g-nav;
+}
+.nav-button:has(#menu-button) label {
+  background-image: url(../img/menu-burger.svg);
+}
+
+header .breadcrumb {
+  grid-area: breadcrumb;
 }
 
 main {
@@ -57,9 +69,9 @@ main {
 }
 
 #local-nav-sidebar {
-  display: grid;
+  /* display: grid; */
 }
-#local-nav-sidebar .nav-button {
+.nav-button:has(#side-menu-btn) {
   grid-area: side-nav-btn;
 }
 #local-nav-sidebar .nav-collapsible {
@@ -93,18 +105,15 @@ nav ul {
   left: 50%;
   margin-left: -1em;
 }
-#menu-icon {
-  background-image: url(../img/menu-burger.svg);
-}
 .nav-collapsible .nav-list, .nav-button input {
   display: none;
 }
-.nav-button:has(input[type=checkbox]:checked) ~ .nav-collapsible .nav-list {
+.nav-button:has(> #menu-button:checked) ~ #global-nav .nav-list, header:has(> .nav-button > #side-menu-btn:checked) ~ aside .nav-list {
   display: flex;
   position: absolute;
   z-index: 1000;
 }
-.nav-button:has(input[type=checkbox]:checked) ~ #global-nav .nav-list {
+.nav-button:has(#menu-button:checked) ~ #global-nav .nav-list {
   z-index: 2000;
 }
 .nav-button:has(input[type=checkbox]:checked) ~ .nav-collapsible details .nav-list {
@@ -154,10 +163,10 @@ nav ul {
   border-radius: 5px;
 }
 
-#local-nav-sidebar label {
+.nav-button:has(#side-menu-btn) label {
   background-image: url(../img/menu.svg);
 }
-#side-menu-button:checked ~ label {
+#side-menu-btn:checked ~ label {
   background-image: url(../img/menu-open.svg);
 }
 
