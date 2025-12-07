@@ -34,9 +34,6 @@ h1, h2, h3, h4, h5, h6 {
 aside:has(> #local-nav) {
   grid-area: l-nav;
 }
-main {
-  grid-area: main;
-}
 footer {
   grid-area: footer;
   background-color: #343434;
@@ -45,7 +42,7 @@ footer {
 
 header {
   grid-area: header;
-  text-align: center;
+  /* text-align: center; */
   display: grid;
   grid-template-columns: min-content auto min-content;
   grid-template-rows: auto auto min-content;
@@ -55,6 +52,7 @@ header {
     "side-nav-btn breadcrumb breadcrumb";
 }
 .logo {
+  text-align: center;
   grid-area: logo;
   line-height: 4em;
 }
@@ -77,6 +75,26 @@ header .breadcrumb {
   font-size: 2.5rem;
   text-decoration: none;
   color: #357266;
+}
+
+main {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: min-content min-content auto;
+  grid-template-areas:
+    "main-header"
+    "in-page-nav"
+    "main-body";
+}
+.main-header {
+  grid-area: main-header;
+}
+.main-body {
+  grid-area: main-body;
+}
+.in-page-nav {
+  grid-area: in-page-nav;
 }
 
 /* Navigering */
@@ -168,8 +186,24 @@ header:has(> .nav-button > #side-menu-btn:checked) ~ aside .nav-collapsible deta
   background-image: url(../img/menu-open.svg);
 }
 
+.in-page-nav .nav-list {
+  text-align: start;
+}
+.in-page-nav .nav-list a {
+  font-size: 1rem;
+  margin: 0;
+  border: none;
+}
+
 
 @media screen and (min-width: 780px) {
+  main {
+    grid-template-columns: minmax(480px, auto) 0.6fr;
+    grid-template-rows: min-content auto;
+    grid-template-areas:
+      "main-header  in-page-nav"
+      "main-body    in-page-nav"
+  }
 }
 
 @media screen and (min-width: 1040px) {
@@ -188,6 +222,9 @@ header:has(> .nav-button > #side-menu-btn:checked) ~ aside .nav-collapsible deta
       "logo"
       "g-nav"
       "breadcrumb";
+  }
+  main {
+    grid-template-columns: minmax(480px, auto) 0.3fr;
   }
   .logo {
     line-height: 8em;
