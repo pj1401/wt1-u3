@@ -168,6 +168,13 @@ header:has(> .nav-button > #side-menu-btn:checked) ~ aside .nav-collapsible deta
   background-image: url(../img/menu-open.svg);
 }
 
+.in-page-nav .nav-list {
+  text-align: left;
+}
+.in-page-nav .nav-list a {
+  border: none;
+}
+
 
 @media screen and (min-width: 780px) {
 }
