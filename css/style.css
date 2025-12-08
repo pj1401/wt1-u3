@@ -195,6 +195,13 @@ header:has(> .nav-button > #side-menu-btn:checked) ~ aside .nav-collapsible deta
   border: none;
 }
 
+.main-header img {
+  object-fit: contain;
+}
+.img-collection .small-img-row {
+  display: flex;
+}
+
 
 @media screen and (min-width: 780px) {
   main {
