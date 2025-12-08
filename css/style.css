@@ -195,11 +195,27 @@ header:has(> .nav-button > #side-menu-btn:checked) ~ aside .nav-collapsible deta
   border: none;
 }
 
-.main-header img {
-  object-fit: contain;
+.img-collection {
+  display: grid;
+  height: 400px;
+  max-width: 1200px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 200px;
 }
-.img-collection .small-img-row {
-  display: flex;
+.main-header img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+.img-collection .main-img {
+  grid-column: span 3;
+}
+.img-collection .horizontal-img {
+  grid-column: span 2;
+}
+.img-collection .small-img {
+  grid-column: span 1;
 }
 
 
