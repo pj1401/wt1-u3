@@ -84,19 +84,22 @@ main {
     "main-header"
     "in-page-nav"
     "main-body";
-  padding: 15px;
 }
 aside:has(> #local-nav) {
   grid-area: l-nav;
+  padding: 15px;
 }
 .main-header {
   grid-area: main-header;
+  padding: 15px;
 }
 .main-body {
   grid-area: main-body;
+  padding: 15px;
 }
 .in-page-nav {
   grid-area: in-page-nav;
+  padding: 15px;
 }
 
 /* Navigering */
