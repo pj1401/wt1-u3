@@ -177,7 +177,7 @@ header:has(> .nav-button > #side-menu-btn:checked) ~ main .nav-collapsible detai
   display: inline;
   border: none;
 }
-#global-nav a.this-page {
+a.this-page {
   background-color: #ABD8CF;
   border: none;
   border-radius: 5px;
@@ -231,7 +231,7 @@ header:has(> .nav-button > #side-menu-btn:checked) ~ main .nav-collapsible detai
   grid-column: span 1;
 }
 .main-header section {
-  flex: 2 1 auto;
+  flex: 1 1 auto;
 }
 .main-header .img-container {
   flex: 0 2 auto;
@@ -257,6 +257,9 @@ header:has(> .nav-button > #side-menu-btn:checked) ~ main .nav-collapsible detai
   }
   .main-header {
     flex-direction: row;
+  }
+  .main-header section {
+    max-width: 405px;
   }
 }
 
@@ -287,6 +290,9 @@ header:has(> .nav-button > #side-menu-btn:checked) ~ main .nav-collapsible detai
   }
   main:not(:has(> .in-page-nav)) .main-header, main:not(:has(> .in-page-nav)) .main-body {
     grid-column: span 1;
+  }
+  .main-header .img-container {
+    max-width: 765px;
   }
   .logo {
     line-height: 8em;
