@@ -82,6 +82,7 @@ main {
     "main-header"
     "in-page-nav"
     "main-body";
+  padding: 15px;
 }
 aside:has(> #local-nav) {
   grid-area: l-nav;
@@ -228,6 +229,7 @@ header:has(> .nav-button > #side-menu-btn:checked) ~ main .nav-collapsible detai
 }
 .main-header .img-container {
   flex: 0 2 auto;
+  max-height: 500px;
 }
 
 
