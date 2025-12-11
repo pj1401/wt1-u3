@@ -33,6 +33,8 @@ h1, h2, h3, h4, h5, h6 {
 footer {
   grid-area: footer;
   background-color: #343434;
+}
+footer, footer a:link, footer a:visited {
   color: #fff;
 }
 
@@ -158,6 +160,7 @@ header:has(> .nav-button > #side-menu-btn:checked) ~ main .nav-collapsible detai
 }
 .nav-list a:hover, .nav-list summary:hover {
   background-color: #f7f7f8;
+  cursor: pointer;
 }
 .nav-list a:hover {
   text-decoration: underline;
