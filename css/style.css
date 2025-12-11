@@ -205,7 +205,8 @@ header:has(> .nav-button > #side-menu-btn:checked) ~ main .nav-collapsible detai
 }
 .main-header {
   display: flex;
-  flex-wrap: wrap
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 .main-header img {
   width: 100%;
@@ -221,6 +222,12 @@ header:has(> .nav-button > #side-menu-btn:checked) ~ main .nav-collapsible detai
 }
 .img-collection .small-img {
   grid-column: span 1;
+}
+.main-header section {
+  flex: 2 1 auto;
+}
+.main-header .img-container {
+  flex: 0 2 auto;
 }
 
 
@@ -239,6 +246,9 @@ header:has(> .nav-button > #side-menu-btn:checked) ~ main .nav-collapsible detai
   }
   main:not(:has(> .in-page-nav)) .main-header, main:not(:has(> .in-page-nav)) .main-body {
     grid-column: span 2;
+  }
+  .main-header {
+    flex-direction: row;
   }
 }
 
