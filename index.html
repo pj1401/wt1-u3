@@ -9,11 +9,11 @@
 <body>
   <header>
     <div class="logo">
-      <a href="./">Logo</a>
+      <a href="./" aria-label="startsida">Logo</a>
     </div>
     <div class="nav-button">
       <input type="checkbox" id="menu-button" class="nav-btn-input">
-      <label for="menu-button"></label>
+      <label for="menu-button" aria-label="Öppna meny"></label>
     </div>
     <nav class="nav-collapsible" id="global-nav">
       <ul class="nav-list">
@@ -23,17 +23,36 @@
       </ul>
     </nav>
   </header>
-  <aside>
-    <nav class="nav-collapsible" id="local-nav">
-    </nav>
-  </aside>
   <main>
-    <div class="main-header">
-      <h1>Välkommen</h1>
-    </div>
-    <aside class="in-page-nav">
-      <nav></nav>
+    <aside>
+      <nav class="nav-collapsible" id="local-nav">
+      </nav>
     </aside>
+    <div class="main-header">
+      <div class="img-collection">
+        <div class="main-img">
+          <img src="./img/building-front-960.jpg" alt="framsidan av byggnaden"
+          srcset="../img/building-front-480.jpg 480w,
+                  ../img/building-front-640.jpg 640w,
+                  ../img/building-front-1280.jpg 1280w"
+          sizes="(max-width: 1039px) 80vw,
+                  60vw">
+        </div>
+        <div class="horizontal-img">
+          <img src="./img/tables-960.jpg" alt="bord i restaurangen"
+          srcset="../img/tables-480.jpg 480w,
+                  ../img/tables-640.jpg 640w"
+          sizes="(max-width: 1039px) 60vw,
+                  50vw">
+        </div>
+        <div class="small-img">
+          <img src="./img/chicken-480.jpg" alt="en kyckling maträtt">
+        </div>
+      </div>
+      <section>
+        <h1>Välkommen</h1>
+      </section>
+    </div>
     <div class="main-body">
       <section>Ät något gott i restaurangen.</section>
     </div>

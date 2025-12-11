@@ -18,10 +18,9 @@ body {
   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Lucida Sans Regular', Geneva, Verdana, sans-serif;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: min-content min-content auto min-content;
+  grid-template-rows: min-content auto min-content;
   grid-template-areas:
     "header"
-    "l-nav"
     "main"
     "footer";
 }
@@ -31,18 +30,16 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
 
-aside:has(> #local-nav) {
-  grid-area: l-nav;
-}
 footer {
   grid-area: footer;
   background-color: #343434;
+}
+footer, footer a:link, footer a:visited {
   color: #fff;
 }
 
 header {
   grid-area: header;
-  /* text-align: center; */
   display: grid;
   grid-template-columns: min-content auto min-content;
   grid-template-rows: auto auto min-content;
@@ -81,20 +78,28 @@ main {
   grid-area: main;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: min-content min-content auto;
+  grid-template-rows: min-content min-content min-content auto;
   grid-template-areas:
+    "l-nav"
     "main-header"
     "in-page-nav"
     "main-body";
 }
+aside:has(> #local-nav) {
+  grid-area: l-nav;
+  padding: 15px;
+}
 .main-header {
   grid-area: main-header;
+  padding: 15px;
 }
 .main-body {
   grid-area: main-body;
+  padding: 15px;
 }
 .in-page-nav {
   grid-area: in-page-nav;
+  padding: 15px;
 }
 
 /* Navigering */
@@ -123,7 +128,7 @@ nav ul {
   display: none;
 }
 .nav-button:has(> #menu-button:checked) ~ #global-nav .nav-list,
-header:has(> .nav-button > #side-menu-btn:checked) ~ aside .nav-collapsible .nav-list {
+header:has(> .nav-button > #side-menu-btn:checked) ~ main .nav-collapsible .nav-list {
   display: flex;
   position: absolute;
   z-index: 1000;
@@ -131,7 +136,7 @@ header:has(> .nav-button > #side-menu-btn:checked) ~ aside .nav-collapsible .nav
 .nav-button:has(> #menu-button:checked) ~ #global-nav .nav-list {
   z-index: 2000;
 }
-header:has(> .nav-button > #side-menu-btn:checked) ~ aside .nav-collapsible details .nav-list {
+header:has(> .nav-button > #side-menu-btn:checked) ~ main .nav-collapsible details .nav-list {
   position: relative;
 }
 .nav-list {
@@ -158,6 +163,7 @@ header:has(> .nav-button > #side-menu-btn:checked) ~ aside .nav-collapsible deta
 }
 .nav-list a:hover, .nav-list summary:hover {
   background-color: #f7f7f8;
+  cursor: pointer;
 }
 .nav-list a:hover {
   text-decoration: underline;
@@ -195,25 +201,73 @@ header:has(> .nav-button > #side-menu-btn:checked) ~ aside .nav-collapsible deta
   border: none;
 }
 
+/* Bilder */
+
+.img-collection {
+  display: grid;
+  height: 200px;
+  gap: 5px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 100px;
+}
+.main-header {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.main-header img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+.img-collection .main-img {
+  grid-column: span 3;
+}
+.img-collection .horizontal-img {
+  grid-column: span 2;
+}
+.img-collection .small-img {
+  grid-column: span 1;
+}
+.main-header section {
+  flex: 2 1 auto;
+}
+.main-header .img-container {
+  flex: 0 2 auto;
+  max-height: 500px;
+}
+
 
 @media screen and (min-width: 780px) {
   main {
-    grid-template-columns: minmax(480px, auto) 0.6fr;
-    grid-template-rows: min-content auto;
+    grid-template-columns: minmax(480px, auto) minmax(180px, 0.6fr);
+    grid-template-rows: min-content min-content auto;
     grid-template-areas:
+      "l-nav l-nav"
       "main-header  in-page-nav"
       "main-body    in-page-nav"
+  }
+  .img-collection {
+    height: 400px;
+    grid-auto-rows: 200px;
+  }
+  main:not(:has(> .in-page-nav)) .main-header, main:not(:has(> .in-page-nav)) .main-body {
+    grid-column: span 2;
+  }
+  .main-header {
+    flex-direction: row;
   }
 }
 
 @media screen and (min-width: 1040px) {
   body {
-    grid-template-columns: 0.25fr minmax(480px, auto);
+    grid-template-columns: auto minmax(480px, 1920px) auto;
     grid-template-rows: min-content auto min-content;
     grid-template-areas:
-      "header  header"
-      "l-nav    main"
-      "footer  footer";
+      "header header  header"
+      ". main ."
+      "footer footer  footer";
   }
   header {
     grid-template-columns: auto;
@@ -224,7 +278,15 @@ header:has(> .nav-button > #side-menu-btn:checked) ~ aside .nav-collapsible deta
       "breadcrumb";
   }
   main {
-    grid-template-columns: minmax(480px, auto) 0.3fr;
+    justify-self: center;
+    grid-template-columns: minmax(180px, 0.3fr) minmax(480px, 1200px) minmax(180px, 0.3fr);
+    grid-template-rows: min-content auto;
+    grid-template-areas:
+      "l-nav main-header in-page-nav"
+      "l-nav main-body   in-page-nav"
+  }
+  main:not(:has(> .in-page-nav)) .main-header, main:not(:has(> .in-page-nav)) .main-body {
+    grid-column: span 1;
   }
   .logo {
     line-height: 8em;
@@ -234,7 +296,7 @@ header:has(> .nav-button > #side-menu-btn:checked) ~ aside .nav-collapsible deta
   }
   .nav-collapsible .nav-list,
   .nav-button:has(> #menu-button:checked) ~ #global-nav .nav-list,
-  header:has(> .nav-button > #side-menu-btn:checked) ~ aside .nav-collapsible .nav-list {
+  header:has(> .nav-button > #side-menu-btn:checked) ~ main .nav-collapsible .nav-list {
     display: flex;
     position: relative;
   }
@@ -246,6 +308,10 @@ header:has(> .nav-button > #side-menu-btn:checked) ~ aside .nav-collapsible deta
   }
   #global-nav a {
     width: 6em;
+  }
+  .img-collection {
+    height: 450px;
+    grid-template-rows: 250px 200px;
   }
   #local-nav {
     display: flex;

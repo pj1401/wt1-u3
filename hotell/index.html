@@ -9,11 +9,11 @@
 <body>
   <header>
     <div class="logo">
-      <a href="../">Logo</a>
+      <a href="../" aria-label="startsida">Logo</a>
     </div>
     <div class="nav-button">
       <input type="checkbox" id="menu-button" class="nav-btn-input">
-      <label for="menu-button"></label>
+      <label for="menu-button" aria-label="Öppna meny"></label>
     </div>
     <nav class="nav-collapsible" id="global-nav">
       <ul class="nav-list">
@@ -24,36 +24,42 @@
     </nav>
     <div class="nav-button">
       <input type="checkbox" id="side-menu-btn" class="nav-btn-input">
-      <label for="side-menu-btn"></label>
+      <label for="side-menu-btn" aria-label="Öppna sidomeny"></label>
     </div>
     <div class="breadcrumb"></div>
   </header>
-  <aside>
-    <nav class="nav-collapsible" id="local-nav">
-      <ul class="nav-list">
-        <li><details>
-          <summary><a href="./rum/">Våra rum</a></summary>
-          <ul class="nav-list">
-            <li><a href="./rum/rum1.html">Rum 1</a></li>
-            <li><a href="./rum/rum1.html">Rum 1</a></li>
-            <li><a href="./rum/rum1.html">Rum 1</a></li>
-            <li><a href="./rum/rum1.html">Rum 1</a></li>
-          </ul>
-        </details></li>
-        <li><a href="./boka-rum.html">Boka rum</a></li>
-      </ul>
-    </nav>
-  </aside>
   <main>
-    <div class="main-header">
-      <h1>Hotell</h1>
-    </div>
-    <aside class="in-page-nav">
-      <nav>
+    <aside>
+      <nav class="nav-collapsible" id="local-nav">
+        <ul class="nav-list">
+          <li><details>
+            <summary>Våra rum</summary>
+            <ul class="nav-list">
+              <li><a href="./rum/index.html">Skog</a></li>
+              <li><a href="./rum/rum1.html">Berg</a></li>
+              <li><a href="./rum/rum1.html">Taiga</a></li>
+              <li><a href="./rum/rum1.html">Tundra</a></li>
+            </ul>
+          </details></li>
+          <li><a href="./boka-rum.html">Boka rum</a></li>
+        </ul>
       </nav>
     </aside>
+    <div class="main-header">
+      <section>
+        <h1>Hotell</h1>
+        <p>Vårt hotell har fyra rum.</p>
+      </section>
+      <div class="img-container">
+        <img src="../img/large-bedroom-640.jpg" alt="ett av hotellrummen"
+        srcset="../img/large-bedroom-480.jpg 480w,
+                ../img/large-bedroom-960.jpg 960w"
+        sizes="(max-width: 779px) 100vw,
+               (max-width: 1039px) 50vw,
+               40vw">
+      </div>
+    </div>
     <div class="main-body">
-      <section>Vårt hotell har fyra rum.</section>
     </div>
   </main>
   <footer>
