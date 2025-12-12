@@ -32,27 +32,74 @@
     <aside>
       <nav class="nav-collapsible" id="local-nav">
         <ul class="nav-list">
-          <li><a href="./kontakt.html">Kontakt</a></li>
+          <li><a href="./kontakt.html">Kontakta oss</a></li>
         </ul>
       </nav>
     </aside>
     <div class="main-header">
       <section>
         <h1>Om</h1>
+        <p>Sjögården byggdes 1911 och användes till en början för att sköta hästar. Gården stod tom mellan 1990 och 2001, men har nu renoverats till restaurang och hotell.</p>
       </section>
+      <div class="img-container">
+        <img src="../img/lake-640.jpg" alt="sjön i närheten av gården"
+        srcset="../img/lake-480.jpg 480w,
+                ../img/lake-640.jpg 640w,
+                ../img/lake-960.jpg 960w"
+        sizes="(max-width: 779px) 100vw,
+               (max-width: 1139px) 50vw,
+               40vw">
+      </div>
     </div>
     <aside class="in-page-nav">
       <nav>
         <h2>Innehåll</h2>
         <ul class="nav-list">
-          <li><a href="#">Vägbeskrivning</a></li>
-          <li><a href="#">Tillgänglighet</a></li>
+          <li><a href="#oppettider">Öppettider</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+          <li><a href="#vagbeskrivning">Vägbeskrivning</a></li>
+          <li><a href="#tillganglighet">Tillgänglighet</a></li>
         </ul>
       </nav>
     </aside>
     <div class="main-body">
       <section>
-        <h2>Vägbeskrivning</h2>
+        <h2 id="oppettider">Öppettider</h2>
+        <ul>
+          <li>Vardagar
+            <ul>
+              <li>Frukost kl 07:00 - 10:00</li>
+              <li>Lunch kl 11:00 - 15:00</li>
+              <li>Afternoon tea kl 16:00 - 18:00</li>
+            </ul>
+          </li>
+          <li>Lördag och söndag
+            <ul>
+              <li>Frukost kl 07:00 - 11:00</li>
+              <li>Lunch kl 11:30 - 15:00</li>
+              <li>Afternoon tea kl 16:00 - 19:00</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2 id="kontakt">Kontakt</h2>
+        <ul>
+          <li>telefon: 0322-00000</li>
+          <li>e-post: info.sjogarden@example.com</li>
+        </ul>
+      </section>
+      <section>
+        <h2 id="vagbeskrivning">Vägbeskrivning</h2>
+        <ul>
+          <li>Adress: Adressvägen 8, 441 75 Sollebrunn</li>
+          <li>Parkering är gratis. Det finns plats för upp till 25 bilar utanför gården.</li>
+          <li>Närmsta hållplats är <a href="https://maps.app.goo.gl/MCGDAxip7EPZrKYM9">Looviken</a></li>
+        </ul>
+      </section>
+      <section>
+        <h2 id="tillganglighet">Tillgänglighet</h2>
+        <p>För frågor om tillgänglighet, skicka meddelande via kontaktformuläret, e-post, eller telefon.</p>
       </section>
     </div>
   </main>
