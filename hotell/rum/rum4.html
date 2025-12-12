@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style.css">
-  <title>Hotell - Sjögården</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>Tundra - Sjögården</title>
 </head>
 <body>
   <header>
     <div class="logo">
-      <a href="../" aria-label="startsida">Sjögården</a>
+      <a href="../../" aria-label="startsida">Sjögården</a>
     </div>
     <div class="nav-button">
       <input type="checkbox" id="menu-button" class="nav-btn-input">
@@ -17,9 +17,9 @@
     </div>
     <nav class="nav-collapsible" id="global-nav">
       <ul class="nav-list">
-        <li><a href="../restaurang.html">Restaurang</a></li>
-        <li><a href="./" class="this-page">Hotell</a></li>
-        <li><a href="../om/">Om oss</a></li>
+        <li><a href="../../restaurang.html">Restaurang</a></li>
+        <li><a href="../" class="this-page">Hotell</a></li>
+        <li><a href="../../om/">Om oss</a></li>
       </ul>
     </nav>
     <div class="nav-button">
@@ -32,30 +32,39 @@
     <aside>
       <nav class="nav-collapsible" id="local-nav">
         <ul class="nav-list">
-          <li><details>
+          <li><details open>
             <summary>Våra rum</summary>
             <ul class="nav-list">
-              <li><a href="./rum/index.html">Skog</a></li>
-              <li><a href="./rum/rum2.html">Berg</a></li>
-              <li><a href="./rum/rum3.html">Taiga</a></li>
-              <li><a href="./rum/rum4.html">Tundra</a></li>
+              <li><a href="./index.html">Skog</a></li>
+              <li><a href="./rum2.html">Berg</a></li>
+              <li><a href="./rum3.html">Taiga</a></li>
+              <li><a href="./rum4.html" class="this-page">Tundra</a></li>
             </ul>
           </details></li>
-          <li><a href="./boka-rum.html">Boka rum</a></li>
+          <li><a href="../boka-rum.html">Boka rum</a></li>
         </ul>
       </nav>
     </aside>
     <div class="main-header">
       <section>
-        <h1>Hotell</h1>
-        <p>Vårt hotell har fyra rum. Rummen finns i en separat byggnad från restaurangen.</p>
-        <p>Frukost är valfritt och kan läggas till för 100 kr/person.</p>
+        <h1>Tundra</h1>
+        <p>Ett rum för upp till två personer.</p>
+        <ul>
+          <li>20 m<sup>2</sup></li>
+          <li>Två enkelsängar, 90 cm</li>
+          <li>Badrum med dusch</li>
+          <li>Skrivbord med stol</li>
+          <li>TV</li>
+          <li>Vattenkokare med kaffe och te</li>
+          <li>Fritt wifi</li>
+        </ul>
+        <p>Pris 1200 kr/natt</p>
       </section>
       <div class="img-container">
-        <img src="../img/building-front-640.jpg" alt="ett av hotellrummen"
-        srcset="../img/building-front-480.jpg 480w,
-                ../img/building-front-640.jpg 640w,
-                ../img/building-front-960.jpg 960w"
+        <img src="../../img/tundra-room-640.jpg" alt="hotellrummet Tundra"
+        srcset="../../img/tundra-room-480.jpg 480w,
+                ../../img/tundra-room-640.jpg 640w,
+                ../../img/tundra-room-960.jpg 960w"
         sizes="(max-width: 779px) 100vw,
                (max-width: 1139px) 50vw,
                40vw">

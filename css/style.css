@@ -92,10 +92,12 @@ aside:has(> #local-nav) {
 .main-header {
   grid-area: main-header;
   padding: 15px;
+  justify-content: center;
 }
 .main-body {
   grid-area: main-body;
   padding: 15px;
+  justify-content: center;
 }
 .in-page-nav {
   grid-area: in-page-nav;
@@ -177,7 +179,7 @@ header:has(> .nav-button > #side-menu-btn:checked) ~ main .nav-collapsible detai
   display: inline;
   border: none;
 }
-#global-nav a.this-page {
+a.this-page {
   background-color: #ABD8CF;
   border: none;
   border-radius: 5px;
@@ -231,10 +233,10 @@ header:has(> .nav-button > #side-menu-btn:checked) ~ main .nav-collapsible detai
   grid-column: span 1;
 }
 .main-header section {
-  flex: 2 1 auto;
+  flex: 1 2 auto;
 }
 .main-header .img-container {
-  flex: 0 2 auto;
+  flex: 1 2 auto;
   max-height: 500px;
 }
 
@@ -258,11 +260,17 @@ header:has(> .nav-button > #side-menu-btn:checked) ~ main .nav-collapsible detai
   .main-header {
     flex-direction: row;
   }
+  .main-header section {
+    flex-basis: 375px;
+  }
+  .main-header .img-container {
+    flex-basis: 375px;
+  }
 }
 
-@media screen and (min-width: 1040px) {
+@media screen and (min-width: 1140px) {
   body {
-    grid-template-columns: auto minmax(480px, 1920px) auto;
+    grid-template-columns: auto minmax(1140px, 1920px) auto;
     grid-template-rows: min-content auto min-content;
     grid-template-areas:
       "header header  header"
@@ -279,7 +287,7 @@ header:has(> .nav-button > #side-menu-btn:checked) ~ main .nav-collapsible detai
   }
   main {
     justify-self: center;
-    grid-template-columns: minmax(180px, 0.3fr) minmax(480px, 1200px) minmax(180px, 0.3fr);
+    grid-template-columns: minmax(180px, 0.3fr) minmax(780px, 1200px) minmax(180px, 0.3fr);
     grid-template-rows: min-content auto;
     grid-template-areas:
       "l-nav main-header in-page-nav"
@@ -287,6 +295,9 @@ header:has(> .nav-button > #side-menu-btn:checked) ~ main .nav-collapsible detai
   }
   main:not(:has(> .in-page-nav)) .main-header, main:not(:has(> .in-page-nav)) .main-body {
     grid-column: span 1;
+  }
+  .main-header .img-container {
+    min-height: 500px;
   }
   .logo {
     line-height: 8em;
@@ -322,5 +333,14 @@ header:has(> .nav-button > #side-menu-btn:checked) ~ main .nav-collapsible detai
   }
   footer {
     height: 5em;
+  }
+}
+
+@media screen and (min-width: 3840px) {
+  body {
+    grid-template-columns: auto minmax(1920px, 2400px) auto;
+  }
+  main {
+    grid-template-columns: minmax(180px, 0.3fr) minmax(1200px, 1920px) minmax(180px, 0.3fr);
   }
 }
