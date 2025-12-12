@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Meny - Sjögården</title>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="../" aria-label="startsida">Sjögården</a>
+    </div>
+    <div class="nav-button">
+      <input type="checkbox" id="menu-button" class="nav-btn-input">
+      <label for="menu-button" aria-label="Öppna meny"></label>
+    </div>
+    <nav class="nav-collapsible" id="global-nav">
+      <ul class="nav-list">
+        <li><a href="./" class="this-page">Restaurang</a></li>
+        <li><a href="../hotell/">Hotell</a></li>
+        <li><a href="../om/">Om oss</a></li>
+      </ul>
+    </nav>
+    <div class="nav-button">
+      <input type="checkbox" id="side-menu-btn" class="nav-btn-input">
+      <label for="side-menu-btn" aria-label="Öppna sidomeny"></label>
+    </div>
+    <div class="breadcrumb"></div>
+  </header>
+  <main>
+    <aside>
+      <nav class="nav-collapsible" id="local-nav">
+        <ul class="nav-list">
+          <li><a href="./meny.html" class="this-page">Meny</a></li>
+          <li><a href="./boka-bord.html">Boka bord</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <div class="main-header">
+      <section>
+        <h1>Meny</h1>
+        <p>Se vad som serveras till frukost, lunch, och afternoon tea.</p>
+      </section>
+    </div>
+    <aside class="in-page-nav">
+      <nav>
+        <h2>Innehåll</h2>
+        <ul class="nav-list">
+          <li><a href="#frukost">Frukost</a></li>
+          <li><a href="#lunch">Lunch</a></li>
+          <li><a href="#afternoon-tea">Afternoon tea</a></li>
+          <li><a href="#dryck">Dryck</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <div class="main-body">
+      <section>
+        <h2 id="frukost">Frukost</h2>
+        <p>Serveras kl 07:00 - 10:00 vardagar<br>kl 07:00 - 11:00 lördag och söndag</p>
+        <ul>
+          <li>Smörgås 30 kr
+            <ul>
+              <li>Välj mellan ost/skinka, brieost, eller växtbaserat.</li>
+            </ul>
+          </li>
+          <li>Pannkakor 35 kr</li>
+          <li>Våfflor 35 kr</li>
+          <li>Havregrynsgröt 15 kr</li>
+        </ul>
+      </section>
+      <div class="img-container">
+        <img src="../img/breakfast-640.jpg" alt="våfflor"
+            srcset="../img/breakfast-480.jpg 480w,
+                    ../img/breakfast-640.jpg 640w,
+                    ../img/breakfast-960.jpg 960w"
+            sizes="(max-width: 779px) 100vw,
+                   (max-width: 1139px) 50vw,
+                   40vw">
+      </div>
+      <section>
+        <h2 id="lunch">Lunch</h2>
+        <p>Serveras kl 11:00 - 15:00 vardagar<br>kl 11:30 - 15:00 lördag och söndag</p>
+        <ul>
+          <li>Kycklingfilé med potatis 75 kr</li>
+          <li>Torsk med ugnsbakad potatis 65 kr</li>
+          <li>Pasta Penne med växtbaserad färssås 60 kr</li>
+        </ul>
+      </section>
+      <div class="img-container">
+        <img src="../img/chicken-640.jpg" alt="kyckling"
+            srcset="../img/chicken-480.jpg 480w,
+                    ../img/chicken-640.jpg 640w,
+                    ../img/chicken-960.jpg 960w"
+            sizes="(max-width: 779px) 100vw,
+                   (max-width: 1139px) 50vw,
+                   40vw">
+      </div>
+      <section>
+        <h2 id="afternoon-tea">Afternoon tea</h2>
+        <p>Serveras kl 16:00 - 18:00 vardagar<br>kl 16:00 - 19:00 lördag och söndag</p>
+        <ul>
+          <li>Scones med färskost och sylt 30 kr</li>
+          <li>Wienerbröd 12 kr</li>
+          <li>Blåbärsmuffins 15 kr</li>
+          <li>Chokladmuffins 12 kr</li>
+        </ul>
+      </section>
+      <div class="img-container">
+        <img src="../img/scones-640.jpg" alt="scones"
+            srcset="../img/scones-480.jpg 480w,
+                    ../img/scones-640.jpg 640w,
+                    ../img/scones-960.jpg 960w"
+            sizes="(max-width: 779px) 100vw,
+                   (max-width: 1139px) 50vw,
+                   40vw">
+      </div>
+      <section>
+        <h2 id="dryck">Dryck</h2>
+        <p>Kan beställas under alla måltider.</p>
+        <ul>
+          <li>Vatten är gratis</li>
+          <li>Kaffe 5 kr (fri påfyllning)</li>
+          <li>Te 5 kr
+            <ul>
+              <li>English breakfast eller Earl Grey</li>
+              <li>Vilka te sorter som finns varierar.</li>
+            </ul>
+          </li>
+          <li>Apelsinjuice 10 kr</li>
+          <li>Mjölk 5 kr</li>
+        </ul>
+      </section>
+      <div class="img-container">
+        <img src="../img/coffee-640.jpg" alt="scones"
+            srcset="../img/coffee-480.jpg 480w,
+                    ../img/coffee-640.jpg 640w,
+                    ../img/coffee-960.jpg 960w"
+            sizes="(max-width: 779px) 100vw,
+                   (max-width: 1139px) 50vw,
+                   40vw">
+      </div>
+    </div>
+  </main>
+  <footer>
+    Webbteknik 1
+  </footer>
+</body>
+</html>

@@ -87,21 +87,17 @@ main {
 }
 aside:has(> #local-nav) {
   grid-area: l-nav;
-  padding: 15px;
 }
 .main-header {
   grid-area: main-header;
-  padding: 15px;
   justify-content: center;
 }
 .main-body {
   grid-area: main-body;
-  padding: 15px;
   justify-content: center;
 }
 .in-page-nav {
   grid-area: in-page-nav;
-  padding: 15px;
 }
 
 /* Navigering */
@@ -221,12 +217,12 @@ form button:hover {
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 100px;
 }
-.main-header {
+.main-header, .main-body {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
 }
-.main-header img {
+.main-header img, .main-body img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -241,10 +237,10 @@ form button:hover {
 .img-collection .small-img {
   grid-column: span 1;
 }
-.main-header section {
+.main-header section, .main-body section {
   flex: 1 2 auto;
 }
-.main-header .img-container {
+.main-header .img-container, .main-body section {
   flex: 1 2 auto;
   max-height: 500px;
 }
@@ -269,11 +265,28 @@ form button:hover {
   .main-header {
     flex-direction: row;
   }
-  .main-header section {
+  .main-header section, .main-body .img-container {
     flex-basis: 375px;
   }
-  .main-header .img-container {
+  .main-header .img-container, .main-body .img-container {
     flex-basis: 375px;
+  }
+  .main-header {
+    padding: 15px;
+  }
+  .main-body {
+    padding: 15px;
+  }
+  .in-page-nav {
+    padding: 15px;
+  }
+  .main-body {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .main-body section, .main-body .img-container {
+    grid-column: span 1;
   }
 }
 
@@ -307,6 +320,12 @@ form button:hover {
   }
   .main-header .img-container {
     min-height: 500px;
+  }
+  .main-body {
+    gap: 10px;
+  }
+  aside:has(> #local-nav) {
+    padding: 15px;
   }
   .logo {
     line-height: 8em;
