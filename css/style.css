@@ -343,4 +343,8 @@ a.this-page {
   main {
     grid-template-columns: minmax(180px, 0.3fr) minmax(1200px, 1920px) minmax(180px, 0.3fr);
   }
+  .img-collection {
+    height: 800px;
+    grid-template-rows: 600px 200px;
+  }
 }
