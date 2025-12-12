@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Meny - Sjögården</title>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="../" aria-label="startsida">Sjögården</a>
+    </div>
+    <div class="nav-button">
+      <input type="checkbox" id="menu-button" class="nav-btn-input">
+      <label for="menu-button" aria-label="Öppna meny"></label>
+    </div>
+    <nav class="nav-collapsible" id="global-nav">
+      <ul class="nav-list">
+        <li><a href="./" class="this-page">Restaurang</a></li>
+        <li><a href="../hotell/">Hotell</a></li>
+        <li><a href="../om/">Om oss</a></li>
+      </ul>
+    </nav>
+    <div class="nav-button">
+      <input type="checkbox" id="side-menu-btn" class="nav-btn-input">
+      <label for="side-menu-btn" aria-label="Öppna sidomeny"></label>
+    </div>
+    <div class="breadcrumb"></div>
+  </header>
+  <main>
+    <aside>
+      <nav class="nav-collapsible" id="local-nav">
+        <ul class="nav-list">
+          <li><a href="./meny.html" class="this-page">Meny</a></li>
+          <li><a href="./boka-bord.html">Boka bord</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <div class="main-header">
+      <section>
+        <h1>Meny</h1>
+        <p>Se vad som serveras till frukost, lunch, och afternoon tea.</p>
+      </section>
+    </div>
+    <aside class="in-page-nav">
+      <nav>
+        <h2>Innehåll</h2>
+        <ul class="nav-list">
+          <li><a href="#frukost">Frukost</a></li>
+          <li><a href="#lunch">Lunch</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <div class="main-body">
+      <section>
+        <h2 id="frukost">Frukost</h2>
+        <p>Serveras kl 07:00 - 10:00 (vardagar) <br>kl 07:00 - 11:00 (lördag och söndag)</p>
+        <h3>Rätter</h3>
+        <ul>
+          <li>Smörgås 30 kr
+            <ul>
+              <li>Välj mellan ost/skinka, brieost, eller växtbaserat.</li>
+            </ul>
+          </li>
+          <li>Pannkakor 35 kr</li>
+          <li>Havregrynsgröt 15 kr</li>
+        </ul>
+        <h3>Dryck</h3>
+        <ul>
+          <li>Kaffe 5 kr (fri påfyllning)</li>
+          <li>Te 5 kr
+            <ul>
+              <li>English breakfast eller Earl Grey</li>
+              <li>Vilka te sorter som finns varierar.</li>
+            </ul>
+          </li>
+          <li>Apelsinjuice 10 kr</li>
+          <li>Mjölk 5 kr</li>
+        </ul>
+      </section>
+      <section>
+        <h2 id="lunch">Lunch</h2>
+      </section>
+    </div>
+  </main>
+  <footer>
+    Webbteknik 1
+  </footer>
+</body>
+</html>
