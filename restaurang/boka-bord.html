@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Boka bord - Sjögården</title>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="../" aria-label="startsida">Sjögården</a>
+    </div>
+    <div class="nav-button">
+      <input type="checkbox" id="menu-button" class="nav-btn-input">
+      <label for="menu-button" aria-label="Öppna meny"></label>
+    </div>
+    <nav class="nav-collapsible" id="global-nav">
+      <ul class="nav-list">
+        <li><a href="./" class="this-page">Restaurang</a></li>
+        <li><a href="../hotell/">Hotell</a></li>
+        <li><a href="../om/">Om oss</a></li>
+      </ul>
+    </nav>
+    <div class="nav-button">
+      <input type="checkbox" id="side-menu-btn" class="nav-btn-input">
+      <label for="side-menu-btn" aria-label="Öppna sidomeny"></label>
+    </div>
+    <div class="breadcrumb"></div>
+  </header>
+  <main>
+    <aside>
+      <nav class="nav-collapsible" id="local-nav">
+        <ul class="nav-list">
+          <li><a href="./meny.html">Meny</a></li>
+          <li><a href="./boka-bord.html" class="this-page">Boka bord</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <div class="main-header">
+      <section>
+        <h1>Boka bord</h1>
+      </section>
+    </div>
+    <div class="main-body">
+      <form method="get" name="table-booking">
+        <fieldset>
+          <legend>Antal</legend>
+          <div class="input-container">
+            <label for="nr-of-guests">Antal personer:</label>
+            <input type="number" name="guests" id="nr-of-guests" value="1" min="1" max="8" required>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Datum</legend>
+          <div class="input-container">
+            <label for="date">Välj datum:</label>
+            <input type="date" id="date" name="date" value="2025-12-12" min="2025-12-12" required/>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Måltid</legend>
+          <div class="input-container">
+            <input type="radio" id="breakfast" name="meal-type" value="breakfast"/>
+            <label for="breakfast">Frukost 07:00 - 10:00 vardagar, 07:00 - 11:00 lördag, söndag</label>
+          </div>
+          <div class="input-container">
+            <input type="radio" id="lunch" name="meal-type" value="lunch" checked/>
+            <label for="lunch">Lunch 11:00 - 15:00 vardagar 11:30 - 15:00 lördag, söndag</label>
+          </div>
+          <div class="input-container">
+            <input type="radio" id="afternoon-tea" name="meal-type" value="afternoon-tea"/>
+            <label for="afternoon-tea">Afternoon tea 16:00 - 18:00 vardagar, 16:00 - 19:00 lördag, söndag</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Kunduppgifter</legend>
+          <div class="input-container">
+            <label for="name">Namn *</label>
+            <input type="text" name="name" id="name" required>
+          </div>
+          <div class="input-container">
+            <label for="email">E-post *</label>
+            <input type="text" name="email" id="email" required>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Extra information</legend>
+          <label for="message">Meddelande:</label>
+          <textarea name="message" id="message" cols="30" rows="10"></textarea>
+        </fieldset>
+        <button type="submit">Skicka</button>
+      </form>
+    </div>
+  </main>
+  <footer>
+    Webbteknik 1
+  </footer>
+</body>
+</html>
