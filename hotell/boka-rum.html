@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Boka rum - Sjögården</title>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="../" aria-label="startsida">Sjögården</a>
+    </div>
+    <div class="nav-button">
+      <input type="checkbox" id="menu-button" class="nav-btn-input">
+      <label for="menu-button" aria-label="Öppna meny"></label>
+    </div>
+    <nav class="nav-collapsible" id="global-nav">
+      <ul class="nav-list">
+        <li><a href="../restaurang.html">Restaurang</a></li>
+        <li><a href="./" class="this-page">Hotell</a></li>
+        <li><a href="../om/">Om oss</a></li>
+      </ul>
+    </nav>
+    <div class="nav-button">
+      <input type="checkbox" id="side-menu-btn" class="nav-btn-input">
+      <label for="side-menu-btn" aria-label="Öppna sidomeny"></label>
+    </div>
+    <div class="breadcrumb"></div>
+  </header>
+  <main>
+    <aside>
+      <nav class="nav-collapsible" id="local-nav">
+        <ul class="nav-list">
+          <li><details>
+            <summary>Våra rum</summary>
+            <ul class="nav-list">
+              <li><a href="./rum/index.html">Skog</a></li>
+              <li><a href="./rum/rum2.html">Berg</a></li>
+              <li><a href="./rum/rum3.html">Taiga</a></li>
+              <li><a href="./rum/rum4.html">Tundra</a></li>
+            </ul>
+          </details></li>
+          <li><a href="./boka-rum.html" class="this-page">Boka rum</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <div class="main-header">
+      <section>
+        <h1>Boka rum</h1>
+      </section>
+    </div>
+    <div class="main-body">
+      <form method="get" name="room-booking">
+        <fieldset>
+          <legend>Rum</legend>
+          <label for="room-select">Välj ett rum:</label>
+          <select name="room" id="room-select">
+            <option value="skog">Skog</option>
+            <option value="berg">Berg</option>
+            <option value="taiga">Taiga</option>
+            <option value="tundra">Tundra</option>
+          </select>
+        </fieldset>
+        <fieldset>
+          <legend>Antal besökare</legend>
+          <div class="input-container">
+            <label for="nrOfAdults">Vuxna:</label>
+            <input type="number" name="adults" id="nrOfAdults" value="1" min="1" required>
+          </div>
+          <div class="input-container">
+            <label for="nrOfChildren">Barn:</label>
+            <input type="number" name="children" id="nrOfChildren" value="0" min="0">
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Datum</legend>
+          <div class="input-container">
+            <label for="start">Ankomstdatum:</label>
+            <input type="date" id="start" name="stay-start" value="2025-12-12" min="2025-12-12" required/>
+          </div>
+          <div class="input-container">
+            <label for="end">Avresedatum:</label>
+            <input type="date" id="end" name="stay-end" value="2025-12-12" min="2025-12-12" required/>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Frukost</legend>
+          <div class="input-container">
+            <label for="nrOfBreakfast">Antal personer:</label>
+            <input type="number" name="breakfast" id="nrOfBreakfast" value="0" min="0" required>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Kunduppgifter</legend>
+          <div class="input-container">
+            <label for="name">Namn *</label>
+            <input type="text" name="name" id="name" required>
+          </div>
+          <div class="input-container">
+            <label for="country">Land *</label>
+            <input type="text" name="country" id="country" value="Sverige">
+          </div>
+          <div class="input-container">
+            <label for="email">E-post *</label>
+            <input type="text" name="email" id="email" required>
+          </div>
+        </fieldset>
+        <button type="submit">Skicka</button>
+      </form>
+    </div>
+  </main>
+  <footer>
+    Webbteknik 1
+  </footer>
+</body>
+</html>
