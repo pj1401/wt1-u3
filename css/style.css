@@ -203,6 +203,15 @@ a.this-page {
   border: none;
 }
 
+form button {
+  font-size: inherit;
+  font-family: inherit;
+  padding: 0.6em;
+}
+form button:hover {
+  cursor: pointer;
+}
+
 /* Bilder */
 
 .img-collection {
