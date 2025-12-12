@@ -99,12 +99,17 @@
           </div>
           <div class="input-container">
             <label for="country">Land *</label>
-            <input type="text" name="country" id="country" value="Sverige">
+            <input type="text" name="country" id="country" value="Sverige" required>
           </div>
           <div class="input-container">
             <label for="email">E-post *</label>
             <input type="text" name="email" id="email" required>
           </div>
+        </fieldset>
+        <fieldset>
+          <legend>Extra information</legend>
+          <label for="message">Meddelande:</label>
+          <textarea name="message" id="message" cols="30" rows="10"></textarea>
         </fieldset>
         <button type="submit">Skicka</button>
       </form>
